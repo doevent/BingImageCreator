@@ -240,6 +240,7 @@ class ImageGenAsync:
     Image generation by Microsoft Bing
     Parameters:
         auth_cookie: str
+        auth_cookie_SRCHHPGUSR: str
     Optional Parameters:
         debug_file: str
         quiet: bool
@@ -249,6 +250,7 @@ class ImageGenAsync:
     def __init__(
         self,
         auth_cookie: str = None,
+        auth_cookie_SRCHHPGUSR: str,
         debug_file: Union[str, None] = None,
         quiet: bool = False,
         all_cookies: List[Dict] = None,
@@ -261,6 +263,7 @@ class ImageGenAsync:
         )
         if auth_cookie:
             self.session.cookies.update({"_U": auth_cookie})
+            self.session.cookies.set("SRCHHPGUSR", auth_cookie_SRCHHPGUSR)
         if all_cookies:
             for cookie in all_cookies:
                 self.session.cookies.update(
