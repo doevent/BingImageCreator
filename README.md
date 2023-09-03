@@ -33,3 +33,21 @@ options:
 - expand the cookies tab
 - click on the `https://bing.com` cookie
 - copy the value from the `_U`
+
+## Example
+```
+# Set cookie: _U, SRCHHPGUSR, KievRPSSecAuth
+cookie_U = ""
+cookie_SRCHHPGUSR = ""
+auth_cookie_KievRPSSecAuth = ""
+
+output_dir = ""
+prompt_text = "a cat"
+
+# Create image generator
+image_generator = ImageGen(cookie_U, cookie_SRCHHPGUSR, auth_cookie_KievRPSSecAuth)
+image_generator.save_images(
+                image_generator.get_images(prompt_text),
+                output_dir=output_dir, download_count=4,
+            )
+```
