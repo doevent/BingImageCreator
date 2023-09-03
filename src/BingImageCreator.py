@@ -70,8 +70,9 @@ class ImageGen:
 
     def __init__(
         self,
-        auth_cookie: str,
-        auth_cookie_SRCHHPGUSR: str,
+        auth_cookie: str
+        auth_cookie_SRCHHPGUSR: str
+        auth_cookie_KievRPSSecAuth: str
         debug_file: Union[str, None] = None,
         quiet: bool = False,
         all_cookies: List[Dict] = None,
@@ -80,6 +81,7 @@ class ImageGen:
         self.session.headers = HEADERS
         self.session.cookies.set("_U", auth_cookie)
         self.session.cookies.set("SRCHHPGUSR", auth_cookie_SRCHHPGUSR)
+        self.session.cookies.set("KievRPSSecAuth", auth_cookie_KievRPSSecAuth)
         if all_cookies:
             for cookie in all_cookies:
                 self.session.cookies.set(cookie["name"], cookie["value"])
